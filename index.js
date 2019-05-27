@@ -59,8 +59,8 @@ module.exports = async (locales, pattern, opts) => {
     ...opts
   }
 
-  const babelrc = getBabelrc(opts.cwd) || {}
-  const babelrcDir = getBabelrcDir(opts.cwd)
+  const babelrc = opts.babelConfig || getBabelrc(opts.cwd) || {}
+  const babelrcDir = opts.babelConfig ? opts.cwd : getBabelrcDir(opts.cwd)
 
   const { moduleSourceName } = opts
   const pluginOptions = moduleSourceName ? { moduleSourceName } : {}
